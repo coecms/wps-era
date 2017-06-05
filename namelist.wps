@@ -2,7 +2,7 @@
  wrf_core = 'ARW',
  max_dom = 2,
  start_date = '2006-03-01_00:00:00','2006-03-01_00:00:00',
- end_date   = '2006-03-04_00:00:00','2006-03-04_00:00:00',
+ end_date   = '2006-03-01_00:00:00','2006-03-01_00:00:00',
  interval_seconds = 21600
  io_form_geogrid = 2,
 /
@@ -32,7 +32,7 @@
 /
 
 &metgrid
- constants_name = 'GEO:1989-01-01_12',
+ constants_name = 'INV:1989-01-01_12',
  fg_name = 'SFC','PL',
  io_form_metgrid = 2, 
 /
