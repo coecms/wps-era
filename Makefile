@@ -73,7 +73,7 @@ pl/namelist.wps: namelist.wps
 	@touch $@
 
 # Copy all the ungrib'd files to the top level for metgrid
-.ungrib.done: .ungrib_sfc.done .ungrib_pl.done
+.ungrib.done: .ungrib_sfc.done .ungrib_pl.done .ungrib_inv.done
 	rm -f SFC:* PL:* INV:*
 	ln -s pl/PL:* .
 	ln -s sfc/SFC:* .
