@@ -12,8 +12,8 @@ START_DATE:=$(shell sed -n namelist.wps -e 's/.*start_date\s*=\s*'"'"'\([^_]*\).
 END_DATE:=$(shell sed -n namelist.wps -e 's/.*end_date\s*=\s*'"'"'\([^_]*\).*/\1/p' | tr -d '-')
 
 # Find the input files
-SFC_FILES:=$(shell find "/g/data1/ub4/erai/grib/oper_an_sfc/fullres" -type f | awk 'BEGIN{FS="_"}{if ($$9<=${START_DATE} && $$10>=${END_DATE}){print $$0}}' )
-PL_FILES:=$(shell find "/g/data1/ub4/erai/grib/oper_an_pl/fullres" -type f | awk 'BEGIN{FS="_"}{if ($$9<=${START_DATE} && $$10>=${END_DATE}){print $$0}}' )
+SFC_FILES:=$(shell find "/g/data1/ub4/erai/grib/oper_an_sfc/fullres" -type f | awk 'BEGIN{FS="_"}{if (${START_DATE}<=$$10 && $$9<=${END_DATE}){print $$0}}' )
+PL_FILES:=$(shell find "/g/data1/ub4/erai/grib/oper_an_pl/fullres" -type f | awk 'BEGIN{FS="_"}{if (${START_DATE}<=$$10 && $$9<=${END_DATE}){print $$0}}' )
 INV_FILES=/g/data1/ub4/erai/grib/invariant/ei_oper_an_sfc_075x075_90N0E90S3585E_invariant
 
 VTABLE=${WPSDIR}/ungrib/Variable_Tables/Vtable.ERA-interim.pl
