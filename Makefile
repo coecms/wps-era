@@ -83,7 +83,7 @@ pl/namelist.wps: namelist.wps
 # Run geogrid
 .geogrid.done: namelist.wps
 	mkdir -p geogrid
-	ln -sf ${WPSDIR}/geogrid/GEOGRID.TBL.ARW geogrid/GEOGRID.TBL
+	ln -sf ${WPSDIR}/geogrid/GEOGRID.TBL.ERAI geogrid/GEOGRID.TBL
 	${WPSDIR}/geogrid.exe
 	@touch $@
 
