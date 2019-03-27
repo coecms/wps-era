@@ -90,7 +90,7 @@ pl/namelist.wps: namelist.wps
 # Run metgrid
 .metgrid.done: namelist.wps .geogrid.done .ungrib.done 
 	mkdir -p metgrid
-	ln -sf ${WPSDIR}/metgrid/METGRID.TBL.ERAI metgrid/METGRID.TBL
+	ln -sf ${WPSDIR}/metgrid/METGRID.TBL metgrid/METGRID.TBL
 	ln -sf /projects/WRF/ERA-Interim/GEO:1989-01-01_12 GEO:1989-01-01_12
 	${WPSDIR}/metgrid.exe
 	@touch $@

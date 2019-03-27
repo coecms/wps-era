@@ -14,7 +14,7 @@
  j_parent_start    =   1,  15,
  e_we              =  216, 229,
  e_sn              =  145, 229,
- geog_data_res     = '10m','2m',
+ geog_data_res     = 'default','default'
  dx = 0.44,
  dy = 0.44,
  map_proj = 'lat-lon',
