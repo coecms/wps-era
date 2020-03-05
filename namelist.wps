@@ -23,7 +23,7 @@
  pole_lat  =  60.31,
  pole_lon  =  321.38,
  stand_lon = 32.37,
- geog_data_path = '/projects/WRF/data/WPS_GEOG/'
+ geog_data_path = '/g/data/sx70/data/WPS_GEOG_v4/'
 /
 
 &ungrib

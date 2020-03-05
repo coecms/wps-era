@@ -12,9 +12,9 @@ START_DATE:=$(shell sed -n namelist.wps -e 's/.*start_date\s*=\s*'"'"'\([^_]*\).
 END_DATE:=$(shell sed -n namelist.wps -e 's/.*end_date\s*=\s*'"'"'\([^_]*\).*/\1/p' | tr -d '-')
 
 # Find the input files
-SFC_FILES:=$(shell find "/g/data1/ub4/erai/grib/oper_an_sfc/fullres" -type f | awk 'BEGIN{FS="_"}{if (${START_DATE}<=$$10 && $$9<=${END_DATE}){print $$0}}' )
-PL_FILES:=$(shell find "/g/data1/ub4/erai/grib/oper_an_pl/fullres" -type f | awk 'BEGIN{FS="_"}{if (${START_DATE}<=$$10 && $$9<=${END_DATE}){print $$0}}' )
-INV_FILES=/g/data1/ub4/erai/grib/invariant/ei_oper_an_sfc_075x075_90N0E90S3585E_invariant
+SFC_FILES:=$(shell find "/g/data/ub4/erai/grib/oper_an_sfc/fullres" -type f | awk 'BEGIN{FS="_"}{if (${START_DATE}<=$$10 && $$9<=${END_DATE}){print $$0}}' )
+PL_FILES:=$(shell find "/g/data/ub4/erai/grib/oper_an_pl/fullres" -type f | awk 'BEGIN{FS="_"}{if (${START_DATE}<=$$10 && $$9<=${END_DATE}){print $$0}}' )
+INV_FILES=/g/data/ub4/erai/grib/invariant/ei_oper_an_sfc_075x075_90N0E90S3585E_invariant
 
 VTABLE=${WPSDIR}/ungrib/Variable_Tables/Vtable.ERA-interim.pl
 
@@ -90,8 +90,7 @@ pl/namelist.wps: namelist.wps
 # Run metgrid
 .metgrid.done: namelist.wps .geogrid.done .ungrib.done 
 	mkdir -p metgrid
-	ln -sf ${WPSDIR}/metgrid/METGRID.TBL metgrid/METGRID.TBL
-	ln -sf /projects/WRF/ERA-Interim/GEO:1989-01-01_12 GEO:1989-01-01_12
+	ln -sf ${WPSDIR}/metgrid/METGRID.TBL.ERAI metgrid/METGRID.TBL
 	${WPSDIR}/metgrid.exe
 	@touch $@
 
